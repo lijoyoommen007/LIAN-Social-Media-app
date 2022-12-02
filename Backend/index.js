@@ -9,7 +9,7 @@ const cookieParser = require("cookie-parser")
 const userRoute = require("./routes/users")
 const authRoute = require("./routes/auth")
 const postRoute = require("./routes/posts")
-const uploadRoute = require("./routes/uploads")
+const uploadRoute = require("./routes/uploads") 
 const messagesRoute = require("./routes/messages")
 const conversationRoute = require("./routes/conversation")
 const notificationRoute = require("./routes/notification")
@@ -24,7 +24,7 @@ mongoose.connect(
    
 //middleware 
 app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Credentials", true);
+  res.header("Access-Control-Allow-Credentials", true); 
   next();
 });
 app.use(express.json()); 
