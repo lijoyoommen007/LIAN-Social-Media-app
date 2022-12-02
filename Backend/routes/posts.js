@@ -7,7 +7,7 @@ const NotificationModel = require("../modules/Notification");
 
 //create a post 
 
-router.post("/", async (req,res,next)=>{
+router.post("/", verify,async (req,res,next)=>{
     console.log(req.body);
     const newPost = new Post(req.body)
     try{
@@ -21,7 +21,7 @@ router.post("/", async (req,res,next)=>{
 
 //update a post 
 
-router.put("/:id",async(req,res)=>{
+router.put("/:id",verify,async(req,res)=>{
     try{
         const post = await Post.findById(req.params.id);
         if(post.userId === req.body.userId){
@@ -105,7 +105,7 @@ router.get("/:id", async(req,res)=>{
 
 //get timeline post 
 
-router.get("/timeline/:userId", async (req,res)=>{
+router.get("/timeline/:userId", verify,async (req,res)=>{
     try {
         const currentUser = await User.findById(req.params.userId)
         const userPost = await Post.find({userId: currentUser._id });
@@ -122,7 +122,7 @@ router.get("/timeline/:userId", async (req,res)=>{
 
 // comment a post
 
-router.post('/comment/:id',async (req,res)=>{
+router.post('/comment/:id',verify,async (req,res)=>{
     try{
         const userComments={ 
             userId:req.body.userId,
@@ -141,7 +141,7 @@ router.post('/comment/:id',async (req,res)=>{
 
 // get user's all posts
 
-router.get("/profile/:id", async (req,res)=>{
+router.get("/profile/:id", verify,async (req,res)=>{
     //console.log(req.params.id)
         const user = await User.findOne({_id:req.params.id})
         const posts = await Post.find({userId:user._id})
