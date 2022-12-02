@@ -1,0 +1,19 @@
+@import "../../style.scss";
+
+.themesbg{
+    @include themify($themes){
+    background-color: themed("mainbg") ;
+    }
+
+}
+
+.home{
+    padding: 20px 70px;
+    @include mobile{
+        padding: 10px;
+    }
+
+    @include tablet{
+        padding: 20px;
+    }
+}

@@ -1,0 +1,82 @@
+@import '../../style.scss';
+
+.navbar{
+    @include themify($themes){
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: themed("bg");
+    padding: 10px 20px;
+    height: 50px;
+    border-bottom: 1px solid lightgray;
+    color:  themed("textColor");
+    position: sticky;
+    top: 0;    
+    z-index: 999;
+    @include mobile{
+        width:35rem;
+    }
+    .left{
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        span{
+            font-weight: bold;
+            font-size: 20px;
+            color: themed("textColor");
+            font-family: fantasy;
+            letter-spacing: 5px;
+        }
+        .search{
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border: 1px solid themed("border");
+            border-radius: 15px;
+            //background-color: #c874b278;
+            color: themed("textColor");
+            input{
+                border: none;
+                width: 500px;
+                background-color:transparent;
+                color: themed("textColor");
+                @include mobile{
+                    display: none;
+                }
+                @include tablet{
+                    //width: 200px;
+                }
+            }
+        }
+    }
+    .right{
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        @include mobile{
+           // display: none;
+        }
+
+        @include tablet{
+          //  display: none;
+        }
+        .user{
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 500;
+            img{
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+                object-fit: cover;
+
+            }
+            span{
+
+
+            }
+        }
+    }
+}
+}
