@@ -36,7 +36,7 @@ function RightBar() {
 );
 
 useEffect(()=>{
-  socket.current = io('ws://localhost:8900');
+  socket.current = io('ws://socket.liansocialmedia.ml');
   socket.current.emit("addUser",currentUser._id);
   socket.current.on("getUsers", (users)=>{
       console.log(users);
