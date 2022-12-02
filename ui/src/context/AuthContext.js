@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import axios from "axios";
-import { baseUrl } from '../axios';
+import { baseUrl, makeRequest } from '../axios';
 export const AuthContext = createContext();
 
 export const AuthContextProvider = ({ children }) => {
@@ -10,17 +10,21 @@ export const AuthContextProvider = ({ children }) => {
   // }
   const login = async(details) => {
     //TO DO
-    const res = await axios.post(`/auth/login`,details,{withCredentials: true}) 
-    setCurrentUser(res.data.user)
-    console.log(res.data.user)
+    console.log(details);
+    makeRequest.post(`/auth/login`,details,{withCredentials: true}).then((res)=>{
+      setCurrentUser(res.data.user)
+      console.log(res.data.user) 
+    }) 
   };
 
   useEffect(() => {
-    localStorage.setItem("user", JSON.stringify(currentUser));
+    if(currentUser != undefined){
+      localStorage.setItem("user", JSON.stringify(currentUser));
+    }
   }, [currentUser]);
 
   const updateCurrentUser=()=>{
-    axios.get(`/users/${currentUser._id}`).then(({data})=>{
+    makeRequest.get(`/users/${currentUser._id}`).then(({data})=>{
         localStorage.setItem('user', JSON.stringify(data))
         setCurrentUser(data)
     }).catch((error)=>console.log(error))

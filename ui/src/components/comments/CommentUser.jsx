@@ -1,5 +1,4 @@
 import altImg from "../../assets/360_F_64676383_LdbmhiNM6Ypzb3FM4PPuFP9rHe7ri8Ju.jpg"
-import axios from 'axios'
 import React, { useState } from 'react'
 import { useEffect } from 'react'
 import { baseUrl, makeRequest } from '../../axios'

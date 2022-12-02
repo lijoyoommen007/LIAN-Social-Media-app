@@ -41,13 +41,17 @@ router.post("/register",createUserMiddleware(Schemas.createUserSchema),async (re
 //.......LOGIN
 
 router.post("/login",async(req,res)=>{
+  console.log("reached here");
     try{
       console.log(req.body);
-    const user = await User.findOne({username:req.body.username});
+    User.findOne({username:req.body.username}).then((user)=>{
     !user && res.status(404).json("user not found");
 
-    if(user){
-    const valiedPassword = await bcrypt.compare(req.body.password, user.password);
+    if(user){ 
+
+   bcrypt.compare(req.body.password, user.password).then((valiedPassword )=>{
+    
+   
     !valiedPassword && res.status(404).json("wrong username or password")
       if(valiedPassword){
     const accessToken = jwt.sign(
@@ -57,7 +61,10 @@ router.post("/login",async(req,res)=>{
       {expiresIn:"7d"});
     res.cookie("accessToken", accessToken,
     {httpOnly:true}).status(200).json({user,accessToken})
-    }}
+    }
+  })
+  }
+  })
     }catch(err){ 
         res.status(500).json(err)
     } 

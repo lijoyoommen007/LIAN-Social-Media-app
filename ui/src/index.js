@@ -10,7 +10,7 @@ import {store} from '../src/music player/redux/store'
 const queryClient = new QueryClient()
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  
+  <React.StrictMode>
     <Provider store={store}>
       <AuthContextProvider>
       <QueryClientProvider client={queryClient}>
@@ -20,6 +20,6 @@ root.render(
     </QueryClientProvider>
     </AuthContextProvider>
     </Provider>
-    
+    </React.StrictMode>
 
 );

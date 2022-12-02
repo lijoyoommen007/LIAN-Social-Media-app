@@ -6,7 +6,7 @@ import "./comments.scss"
 import { CommentUser, ProfileUser } from "./CommentUser";
 import altImg from "../../assets/360_F_64676383_LdbmhiNM6Ypzb3FM4PPuFP9rHe7ri8Ju.jpg"
 import moment from "moment"
-import { useQueryClient } from "@tanstack/react-query";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 
 function Comments(props) {
 
@@ -21,7 +21,17 @@ function Comments(props) {
       setPosts([res.data])
     }
     fetchPosts();
-  },[userComment])
+  },[userComment, posts])
+
+
+  const { isLoading, error, data } = useQuery(["comments"], () =>
+  makeRequest.get(`/posts/${props.id}`).then((res)=>{
+    setPosts([res.data])
+  })
+
+  )
+
+
 
   const handleComments = async (e) => {
     e.preventDefault()
@@ -30,9 +40,10 @@ function Comments(props) {
       userId: currentUser._id
     }
     try {
-      const res = makeRequest.post(`/posts/comment/${props.id}`, commentData)
+      const res = await makeRequest.post(`/posts/comment/${props.id}`, commentData)
       setComments('')
       queryClient.invalidateQueries(["posts"]);  
+      queryClient.invalidateQueries(['comments'])
     } catch (error) {
       console.log(error);
     }
