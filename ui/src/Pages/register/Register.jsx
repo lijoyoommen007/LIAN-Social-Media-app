@@ -2,7 +2,7 @@ import "./register.scss"
 import {Link, useNavigate} from "react-router-dom"
 import { useRef, useState } from "react"
 import axios from "axios";
-import { baseUrl } from "../../axios";
+import { baseUrl, makeRequest } from "../../axios";
 
 function Register() {
   const refUsername = useRef();
@@ -45,7 +45,7 @@ function Register() {
           email: refEmail.current.value,
           password:refPassword.current.value,
         }
-         axios.post("/auth/register",user).then((response)=>{
+         makeRequest.post("/auth/register",user).then((response)=>{
           console.log(response);
           navigate("/login")
         }).catch((err)=>{
