@@ -31,7 +31,7 @@ export default function Messenger() {
     const socket = useRef()
     
     useEffect(()=>{
-        socket.current = io('ws://socket.liansocialmedia.ml');
+        socket.current = io('https://socket.liansocialmedia.ml');
             socket.current.on("getMessage",(data)=>{
                 setArrivalMessage({
                     sender:data.senderId,
