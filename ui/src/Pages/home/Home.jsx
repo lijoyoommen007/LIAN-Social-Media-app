@@ -18,15 +18,8 @@ function Home() {
 
   const {darkMode} = useContext(DarkModeContext)
   const { activeSong } = useSelector((state) => state.player);
-  const {currentUser} = useContext(AuthContext)
-  const [socket, setSocket] = useState(null)
-  useEffect(()=>{
-    setSocket(io("http://localhost:8900"))
-  },[])
+ 
 
-  useEffect(()=>{
-    socket?.emit("addUser", currentUser._id)
-  },[socket, currentUser])
 
 
   return (

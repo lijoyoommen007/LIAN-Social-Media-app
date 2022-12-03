@@ -8,19 +8,13 @@ import { DarkModeContext } from "../../context/darkModeContext"
 import ProfileComponent from "../../components/profile/ProfileComponent"
 import { useSelector } from "react-redux"
 import { MusicPlayer } from "../../music player/components"
-import {io} from "socket.io-client"
-import { AuthContext } from "../../context/AuthContext"
 
 function Profile() {
   const {darkMode} = useContext(DarkModeContext)
   const { activeSong } = useSelector((state) => state.player);
-  const {currentUser} = useContext(AuthContext)
 
-  const [socket, setSocket] = useState(null)
-  useEffect(()=>{
-    const socket = io("http://localhost:8900")
-    console.log(socket);
-  },[socket, currentUser])
+
+  
 
   
 
