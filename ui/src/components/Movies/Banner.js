@@ -1,4 +1,4 @@
-import { Axios } from 'axios'
+import Axios from 'axios' 
 import React, { useEffect, useState } from 'react'
 import './Banner.css'
 const API_KEY = "0fc3c71d5a849985c23e7761c5513794"

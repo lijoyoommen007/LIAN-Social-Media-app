@@ -4,7 +4,7 @@ import './RowPost.css'
 import Youtube from 'react-youtube'
 import { makeRequest } from '../../axios'
 import instanceNews from './axios'
-import { Axios } from 'axios'
+import  Axios  from 'axios'
 const imageUrl = 'https://image.tmdb.org/t/p/original'
 const API_KEY = "0fc3c71d5a849985c23e7761c5513794"
 
