@@ -4,6 +4,7 @@ import './RowPost.css'
 import Youtube from 'react-youtube'
 import { makeRequest } from '../../axios'
 import instanceNews from './axios'
+import { Axios } from 'axios'
 const imageUrl = 'https://image.tmdb.org/t/p/original'
 const API_KEY = "0fc3c71d5a849985c23e7761c5513794"
 
@@ -12,7 +13,7 @@ function RowPost(props) {
   const [movies, setMovies] = useState([])
   const [urlId ,setUrlId]= useState('')
   useEffect(()=> {
-    axios.get('https://api.themoviedb.org/3'/+props.url).then(res=>{
+    Axios.get('https://api.themoviedb.org/3'/+props.url).then(res=>{
       console.log(res.data);
       setMovies(res.data.results)
     }).catch((err)=>{
@@ -28,7 +29,7 @@ function RowPost(props) {
     },
   };
   const handleMovie = (id)=>{
-      axios.get(`https://api.themoviedb.org/3/movie/${id}/videos?api_key=${API_KEY}&language=en-US`).then(res=>{
+      Axios.get(`https://api.themoviedb.org/3/movie/${id}/videos?api_key=${API_KEY}&language=en-US`).then(res=>{
       if(res.data.results.length!==0){
         setUrlId(res.data.results[0])
       }
