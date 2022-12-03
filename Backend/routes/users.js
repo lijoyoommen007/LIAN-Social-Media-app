@@ -1,8 +1,9 @@
 const router = require("express").Router()
 const User = require("../modules/User")
 const NotificationModel = require("../modules/Notification")
+const verify = require("../middleware/verifeToken");
 //update user 
-router.put("/:id", async(req,res)=>{
+router.put("/:id",verify, async(req,res)=>{
     if(req.body.userId === req.params.id){
         // if(req.body.password){
         //     try{
@@ -26,7 +27,7 @@ router.put("/:id", async(req,res)=>{
     }
 })
 //delete user
-router.delete("/:id", async(req,res)=>{
+router.delete("/:id",verify, async(req,res)=>{
     if(req.body.userId === req.params.id || req.body.isAdmin){
         
         try{
@@ -40,7 +41,7 @@ router.delete("/:id", async(req,res)=>{
     }
 })  
 //get a user  
-router.get("/:userId",async (req,res)=>{
+router.get("/:userId",verify,async (req,res)=>{
     console.log(req.params.userId,'asfsf');
         User.findById(req.params.userId).then((user)=>{
             console.log(user,'sadfsaf');
@@ -52,7 +53,7 @@ router.get("/:userId",async (req,res)=>{
 })  
 
 //get friends
-router.get("/friends/:userId", async (req, res) => {
+router.get("/friends/:userId",verify, async (req, res) => {
     try { 
       const user = await User.findById(req.params.userId);
       const friends = await Promise.all(
@@ -73,7 +74,7 @@ router.get("/friends/:userId", async (req, res) => {
   });
  
 //follow a user
-router.put("/:id/follow",async(req,res)=>{
+router.put("/:id/follow",verify,async(req,res)=>{
     if(req.body.userId!== req.params.id){
         try{
             const user = await User.findById(req.params.id);
@@ -104,7 +105,7 @@ router.put("/:id/follow",async(req,res)=>{
 //unfollow
 
 
-router.put("/:id/unfollow",async(req,res)=>{
+router.put("/:id/unfollow",verify,async(req,res)=>{
     if(req.body.userId!== req.params.id){
         
         try{
@@ -139,7 +140,7 @@ router.put("/:id/unfollow",async(req,res)=>{
 })
 
 
-router.get("/",async(req,res)=>{
+router.get("/",verify,async(req,res)=>{
     try{
         const users = await User.find();
         console.log(users);
