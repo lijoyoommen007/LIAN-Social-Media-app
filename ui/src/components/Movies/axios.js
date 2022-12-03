@@ -3,7 +3,7 @@ const baseURL = 'https://api.themoviedb.org/3'
 
 
 const instanceNews = axios.create({
-    baseURL: baseURL,
+    baseURL: baseURL,withCredentials:true
 })
 
 
