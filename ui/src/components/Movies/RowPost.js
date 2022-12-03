@@ -13,7 +13,7 @@ function RowPost(props) {
   const [movies, setMovies] = useState([])
   const [urlId ,setUrlId]= useState('')
   useEffect(()=> {
-    Axios.get('https://api.themoviedb.org/3'/+props.url).then(res=>{
+    Axios.get('https://api.themoviedb.org/3/'+props.url).then(res=>{
       console.log(res.data);
       setMovies(res.data.results)
     }).catch((err)=>{

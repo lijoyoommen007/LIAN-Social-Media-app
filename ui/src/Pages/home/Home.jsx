@@ -34,9 +34,9 @@ function Home() {
         <div style={{flex:6}} className="home" >
           {/* <Stories/> */}
           <UserPost/>
-          <Posts socket={socket} />
+          <Posts />
         </div>
-        <RightBar socket={socket} />
+        <RightBar />
       </div>
       </div>
       {activeSong?.title && (
