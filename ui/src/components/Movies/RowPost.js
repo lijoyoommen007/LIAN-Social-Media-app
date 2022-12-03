@@ -12,7 +12,7 @@ function RowPost(props) {
   const [movies, setMovies] = useState([])
   const [urlId ,setUrlId]= useState('')
   useEffect(()=> {
-    instanceNews.get(props.url).then(res=>{
+    axios.get('https://api.themoviedb.org/3'/+props.url).then(res=>{
       console.log(res.data);
       setMovies(res.data.results)
     }).catch((err)=>{
@@ -28,7 +28,7 @@ function RowPost(props) {
     },
   };
   const handleMovie = (id)=>{
-      instanceNews.get(`/movie/${id}/videos?api_key=${API_KEY}&language=en-US`).then(res=>{
+      axios.get(`https://api.themoviedb.org/3/movie/${id}/videos?api_key=${API_KEY}&language=en-US`).then(res=>{
       if(res.data.results.length!==0){
         setUrlId(res.data.results[0])
       }
