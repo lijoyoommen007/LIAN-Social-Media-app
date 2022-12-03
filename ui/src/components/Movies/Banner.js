@@ -9,7 +9,7 @@ const imageUrl = 'https://image.tmdb.org/t/p/original'
 function Banner() {
   const [movie, setMovie] = useState('')
   useEffect(()=>{
-     makeRequest.get(`trending/all/week?api_key=${API_KEY}&language=en-US`).then((res)=>{
+     axios.get(`trending/all/week?api_key=${API_KEY}&language=en-US`).then((res)=>{
       setMovie(res.data.results[Math.floor(Math.random()*res.data.results.length)])
     })
   },[])

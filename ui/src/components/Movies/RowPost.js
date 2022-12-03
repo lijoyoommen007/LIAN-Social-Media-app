@@ -28,7 +28,7 @@ function RowPost(props) {
   };
   const handleMovie = (id)=>{
     console.log(id);
-      makeRequest.get(`/movie/${id}/videos?api_key=${API_KEY}&language=en-US`).then(res=>{
+      axios.get(`/movie/${id}/videos?api_key=${API_KEY}&language=en-US`).then(res=>{
       if(res.data.results.length!==0){
         setUrlId(res.data.results[0])
       }
