@@ -12,7 +12,7 @@ function RowPost(props) {
   const [movies, setMovies] = useState([])
   const [urlId ,setUrlId]= useState('')
   useEffect(()=> {
-    makeRequest.get(props.url).then(res=>{
+    instanceNews.get(props.url).then(res=>{
       console.log(res.data);
       setMovies(res.data.results)
     }).catch((err)=>{
@@ -28,7 +28,6 @@ function RowPost(props) {
     },
   };
   const handleMovie = (id)=>{
-    console.log(id);
       instanceNews.get(`/movie/${id}/videos?api_key=${API_KEY}&language=en-US`).then(res=>{
       if(res.data.results.length!==0){
         setUrlId(res.data.results[0])
