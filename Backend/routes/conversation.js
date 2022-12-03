@@ -1,6 +1,6 @@
 const router = require("express").Router()
 const Conversation = require('../modules/Conversation')
-const validate = require("../middleware/verifeToken")
+
 //new Conversation
 
 router.post("/",async(req,res)=>{
