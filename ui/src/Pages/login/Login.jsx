@@ -73,9 +73,7 @@ function Login() {
                 <a > Register </a>
               </Link> 
             </span>
-            <div className="or">
-                <span>Or login with</span>
-            </div>
+            
            
 
           </div>

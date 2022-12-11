@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/static/css/main.a9a82a59.css",
-    "main.js": "/static/js/main.e1dd2ea4.js",
+    "main.js": "/static/js/main.99cf29ce.js",
     "static/media/tp-best-mens-hairstyles.jpg": "/static/media/tp-best-mens-hairstyles.525d3eaf2878494bfa56.jpg",
     "index.html": "/index.html",
     "main.a9a82a59.css.map": "/static/css/main.a9a82a59.css.map",
-    "main.e1dd2ea4.js.map": "/static/js/main.e1dd2ea4.js.map"
+    "main.99cf29ce.js.map": "/static/js/main.99cf29ce.js.map"
   },
   "entrypoints": [
     "static/css/main.a9a82a59.css",
-    "static/js/main.e1dd2ea4.js"
+    "static/js/main.99cf29ce.js"
   ]
 }
