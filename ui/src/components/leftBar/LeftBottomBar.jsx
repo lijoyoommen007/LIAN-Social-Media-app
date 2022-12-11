@@ -56,14 +56,6 @@ const LeftBottomBar = () => {
             </div>
             </Link>
             <div className='items'>
-                <Link to={'/news'}>
-                <NewspaperOutlinedIcon className='icon'/>
-                </Link>
-                <Link to={'/news'}>
-                <span>News</span>
-                </Link>
-            </div>
-            <div className='items'>
                 <Link to={'/movies'}>
                 <MovieCreationIcon className='icon'/>
                 </Link>

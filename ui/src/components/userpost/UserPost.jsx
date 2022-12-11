@@ -118,7 +118,8 @@ const Share = () => {
             
           </div>
           <div className="right">
-            <button onClick={handleClick}>Share</button>
+            {desc || file || video?<button onClick={handleClick}>Share</button>: <button>Share</button> }
+            
           </div>
         </div>
       </div>
