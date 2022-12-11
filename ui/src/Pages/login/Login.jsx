@@ -76,15 +76,7 @@ function Login() {
             <div className="or">
                 <span>Or login with</span>
             </div>
-            <div className="button" >
-            <button class="loginBtn loginBtn--facebook">
-                    Facebook
-                </button>
-                
-                <button class="loginBtn loginBtn--google">
-                   Google
-                </button>
-            </div>
+           
 
           </div>
           

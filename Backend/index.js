@@ -20,7 +20,8 @@ mongoose.connect(
     process.env.MONGO_URL,()=>{
     console.log("Connected to MongoDB"); 
 });    
- 
+
+
    
 //middleware 
 app.use((req, res, next) => {  
